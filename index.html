@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<title>Easel Test</title>
+<head>
+    <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
+    <style>
+        body{
+            background-color: #000000;
+        }
+    </style>
+    <script>
+        var stage;
+        var bitmap;
+        var bitmapText;
+        var image;
+
+        function init() {
+            stage = new createjs.Stage("myCanvas");
+            image = new Image();
+            image.src = "imagePath2.png";
+            bitmap = new createjs.Bitmap(image);
+            stage.addChild(bitmap);
+            stage.update();
+        }
+
+        function tick() {
+            bitmap.x += 1;
+            bitmap.y += 0;
+            stage.update();
+        }
+
+
+        init();
+        var timerId = setInterval(tick, 10)
+        setTimeout(function() {
+            clearInterval(timerId);
+        }, 1500);
+
+        var x=10;
+        // функция запуска второй анимации
+        var startSecondAnimation = function init() {
+            image = new Image();
+            image.src = "imagePath1.png";
+            bitmap = new createjs.Bitmap(image);
+            stage.addChild(bitmap);
+            stage.update();
+        }
+
+        var timerId = setInterval(tick, 30);
+        setTimeout(startSecondAnimation, 2000);
+        setTimeout(startFAnimation, 3300);
+        setTimeout(tick, 1000);
+        setTimeout(inited, 5000);
+        setTimeout(initad, 6000);
+        setTimeout(initot, 7000);
+
+        var x=10;
+        var startFAnimation = function init() {
+            image = new Image();
+            image.src = "imagePath10.png";
+            bitmap = new createjs.Bitmap(image);
+            stage.addChild(bitmap);
+            stage.update();
+        }
+
+        function inited() {
+            stage = new createjs.Stage("myCanvas");
+        }
+
+        function initad() {
+            image = new Image();
+            image.src = "imagePath10.png";
+            bitmap = new createjs.Bitmap(image);
+            stage.addChild(bitmap);
+            stage.update();
+        }
+
+
+
+
+    </script>
+
+</head>
+<body onload="init();">
+<canvas id="myCanvas" width="960" height="580"></canvas>
+</body>
+
+</html>
